@@ -8,8 +8,158 @@ body {
     background-size: cover; /* Чтобы изображение растягивалось на весь экран */
     background-repeat: no-repeat;
     background-position: center center; /* Центрирование фона */
-    font-family: Arial, sans-serif;
+    font-family: 'Dela Gothic One', sans-serif;
     margin: 0;
     padding: 0;
     color: rgb(255, 247, 242); /* Цвет текста, чтобы он был виден на фоне */
   }
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  a {
+    display: inline-block; /* Чтобы стилизовать ссылку как кнопку */
+    background-color: #f8d9d9; /* Цвет фона кнопки */
+    color: rgb(54, 13, 20); /* Цвет текста */
+    padding: 5px 15px; /* Отступы: 5px сверху/снизу и 15px слева/справа */
+    text-align: center; /* Выравнивание текста */
+    border-radius: 5px; /* Закругленные углы */
+    text-decoration: none; /* Убирает подчеркивание */
+    font-size: 16px; /* Размер шрифта */
+    margin: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  a:hover {
+    background-color: #b66464; /* Цвет фона при наведении */
+  }
+  /* Стили для боковой панели */
+.side-panel {
+    height: 100%; /* Панель будет на всю высоту */
+    width: 0; /* Скрытая панель по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Темный фон */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    transition: 0.5s; /* Плавный переход */
+    padding-top: 60px; /* Отступ сверху */
+  }
+  
+  .side-panel a {
+    padding: 8px 8px 8px 32px; /* Отступы для ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 25px; /* Размер шрифта */
+    color: #818181; /* Цвет текста */
+    display: block; /* Каждая ссылка будет на новой строке */
+    transition: 0.3s;
+  }
+  
+  .side-panel a:hover {
+    color: #f1f1f1; /* Цвет текста при наведении */
+  }
+  
+  .side-panel .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Стили для кнопки открытия панели */
+  .open-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #af4c59;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Dela Gothic One', sans-serif;
+  }
+  
+ .open-btn:hover {
+    background-color: #742c2c;
+  }
+  /* Кнопка закрытия */
+.close-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid white;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .close-btn:hover {
+        background-color: white;
+        color: black;
+        transform: scale(1.1);
+      }
+
+      .side-feature {
+        position: absolute;
+        top: 100px;
+        right: 30px;
+        width: 35%; /* Гифка побольше */
+        background-color: transparent;
+      }
+      
+      .side-feature img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: none; /* Убрана рамка */
+        box-shadow: none;
+      }
+      
+      .side-text {
+        text-align: center;
+        margin-top: 5px; /* Меньше отступ между гифкой и текстом */
+      }
+      
+      .side-text h2 {
+        color: #fff;
+        font-size: 22px;
+        font-family: 'Dela Gothic One', sans-serif;
+        margin-bottom: 4px; /* Уменьшаем расстояние до кнопки */
+      }
+      
+      .side-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #ffcc00;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: 0.3s ease;
+      }
+      
+      .side-btn:hover {
+        background-color: #ffaa00;
+        color: #fff;
+      }    

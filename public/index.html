@@ -5,23 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Мой сайт с рецептами десертов</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <script src="script.js"></script>
 </head>
 <body>
   <!-- Контент сайта -->
   <header>
-    <h1>Добро пожаловать на сайт с рецептами десертов!</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Рецепты</a></li>
-        <li><a href="#">Контакты</a></li>
-      </ul>
-    </nav>
+    <h1>AnimeDesserts.com</h1>
+   <!-- Кнопка для открытия боковой панели -->
+<button class="open-btn" onclick="toggleSidePanel()">Меню</button>
+
+<!-- Боковая панель -->
+<div id="sidePanel" class="side-panel">
+  <a href="#">Главная</a>
+  <a href="#">Мой профиль</a>
+  <a href="#">Подборка рецептов</a>
+  <a href="#">Избранное</a>
+  <a href="#">Контакты</a>
+  <a href="#">Инфо</a>
+  <button class="close-btn" onclick="toggleSidePanel()">&times;</button>
+</div>
   </header>
 
   <main>
     <section class="intro">
-      <h2>Найдите лучшие рецепты десертов</h2>
+      <h2>Найдите лучшие рецепты аниме десертов</h2>
       <p>На нашем сайте вы найдете множество вкусных рецептов сладких десертов.</p>
     </section>
   </main>
@@ -29,6 +37,16 @@
   <footer>
     <p>© 2025 Мой сайт с рецептами десертов</p>
   </footer>
+
+  <div class="side-feature">
+    <a href="https://64.media.tumblr.com/59c8d5c8468d6def10b798266d6b25c1/7399d2596b96806a-c1/s540x810/58bb484859dfa19f71f2ad920ad6e27c712eef47.gifv">
+      <img src="https://64.media.tumblr.com/59c8d5c8468d6def10b798266d6b25c1/7399d2596b96806a-c1/s540x810/58bb484859dfa19f71f2ad920ad6e27c712eef47.gifv" alt="Аниме гифка">
+    </a>
+    <div class="side-text">
+      <h2>Красота...</h2>
+      <a href="recipes/lemon-pie.html" class="side-btn">Хочу есть!</a>
+    </div>
+  </div>
 
 </body>
 </html>
