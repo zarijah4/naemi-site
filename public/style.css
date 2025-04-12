@@ -1,17 +1,8 @@
-button {
-    background-color: crimson;
-    color: peachpuff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-button:hover {
-    background-color: mediumvioletred;
-}
-/* Задний фон для всего сайта */
 body {
     background-image: url('https://i.pinimg.com/originals/9f/40/a7/9f40a7e9e5114507808e9a3982d4f0f2.jpg'); /* Укажи путь к изображению */
     background-size: cover; /* Чтобы изображение растягивалось на весь экран */
