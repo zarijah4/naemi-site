@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Чат</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="chat">
+    <h2>Мини-чатик!</h2>
+    <div id="messages" style="height: 200px; overflow-y: auto; border: 1px solid #ccc;"></div>
+    <input id="msg" placeholder="Сообщение...">
+    <button onclick="sendMessage()">Отправить</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCB5Aw58SZouh2KZhcCxRrnAZNZixOM6Xw",
+      authDomain: "anime-desserts.firebaseapp.com",
+      projectId: "anime-desserts",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (!user) window.location.href = "register.html";
+    });
+
+    const messagesDiv = document.getElementById("messages");
+
+    db.collection("messages").orderBy("time").onSnapshot(snapshot => {
+      messagesDiv.innerHTML = "";
+      snapshot.forEach(doc => {
+        const msg = doc.data();
+        messagesDiv.innerHTML += <p><b>${msg.user}:</b> ${msg.text}</p>;
+      });
+    });
+
+    function sendMessage() {
+      const text = document.getElementById("msg").value;
+      const user = auth.currentUser.email;
+      db.collection("messages").add({
+        user,
+        text,
+        time: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      document.getElementById("msg").value = "";
+    }
+  </script>
+</body>
+</html>
