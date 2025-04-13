@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход в аккаунт</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Войдите в свой аккаунт</h1>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Электронная почта" required>
+      <input type="password" id="password" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+    </form>
+    <p>Нет аккаунта? <a href="regestracia.html">Зарегистрируйтесь</a></p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCB5Aw58SZouh2KZhcCxRrnAZNZixOM6Xw",
+      authDomain: "anime-desserts.firebaseapp.com",
+      projectId: "anime-desserts",
+      storageBucket: "anime-desserts.firebasestorage.app",
+      messagingSenderId: "286196048091",
+      appId: "1:286196048091:web:c21542ee5e838195d8acfe",
+      measurementId: "G-HL5K95J9ZV"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.email.value;
+      const password = form.password.value;
+
+      // Логика входа
+      auth.signInWithEmailAndPassword(email, password)
+        .then((cred) => {
+          alert("Вы успешно вошли!");
+          window.location.href = "chat.html"; // Перенаправление в чат
+        })
+        .catch((err) => {
+          alert("Ошибка: " + err.message);
+        });
+    });
+  </script>
+</body>
+</html>
