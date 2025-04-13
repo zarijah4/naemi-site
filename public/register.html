@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вход в аккаунт</title>
+  <title>Регистрация</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="login-container">
-    <h1>Войдите в свой аккаунт</h1>
-    <form id="login-form">
+  <div class="register-container">
+    <h1>Создай свой профиль</h1>
+    <!-- Убираем метод POST -->
+    <form id="register-form">
       <input type="email" id="email" placeholder="Электронная почта" required>
       <input type="password" id="password" placeholder="Пароль" required>
-      <button type="submit">Войти</button>
+      <button type="submit">Зарегистрироваться</button>
     </form>
-    <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
+    <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
   </div>
 
   <!-- Firebase SDK -->
@@ -35,17 +36,17 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    const form = document.getElementById('login-form');
+    const form = document.getElementById('register-form');
     form.addEventListener('submit', (e) => {
-      e.preventDefault();
+      e.preventDefault(); // Останавливаем стандартную отправку формы
       const email = form.email.value;
       const password = form.password.value;
 
-      // Логика входа
-      auth.signInWithEmailAndPassword(email, password)
+      // Регистрация через Firebase
+      auth.createUserWithEmailAndPassword(email, password)
         .then((cred) => {
-          alert("Вы успешно вошли!");
-          window.location.href = "chat.html"; // Перенаправление в чат
+          alert("Регистрация прошла успешно!");
+          window.location.href = "chat.html"; // Редирект на страницу чата
         })
         .catch((err) => {
           alert("Ошибка: " + err.message);
