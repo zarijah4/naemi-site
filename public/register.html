@@ -38,18 +38,29 @@
         alert("Ошибка: " + err.message);
       });
   });
+
+  function signInAnonymously() {
+    auth.signInAnonymously()
+      .then(() => {
+        alert("Вы вошли как аноним!");
+        window.location.href = "chat.html"; // редирект в чат
+      })
+      .catch((err) => {
+        alert("Ошибка: " + err.message);
+      });
+  }
 </script>
 <body>
   <div class="register-container">
     <h1>Создай свой профиль</h1>
-    <form action="#" method="POST">
+    <form method="POST">
       <input type="text" name="username" placeholder="Имя пользователя" required>
       <input type="email" name="email" placeholder="Электронная почта" required>
       <input type="password" name="password" placeholder="Пароль" required>
       <button type="submit">Зарегистрироваться</button>
     </form>
     <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+    <button onclick="signInAnonymously()">Продолжить без регистрации</button>
   </div>
 </body>
 </html>
-<button onclick="signInAnonymously()">Продолжить без регистрации</button>
